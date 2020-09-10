@@ -18,7 +18,6 @@ initialise();
 function hiLow() {
     // Get the guessed value
     let guess = parseInt(document.querySelector('#number').value);
-    console.log(guess);
 
     // Briefly hide and then show the results again like in Ms. Buck's example
     resultMessage.style.display = 'none';
@@ -27,9 +26,11 @@ function hiLow() {
         resultMessage.style.display = 'block';
         guessedMessage.style.display = 'block';
     }, 100);
+    // Checking to see if the guesses have been exhausted
     if (guessNum < 10) {
-        console.log(guesses.findIndex(num => num == guess));
+        // Check to see if the guessed number has already been guessed
         if (guesses.findIndex(num => num == guess) == -1) {
+            // Final output based on the relation of the guess to the secret number
             if (guess == number) {
                 resultMessage.innerHTML = 'Congrats! That is the right number! Click reset to start a new game.';
                 guessNum = 5;
@@ -52,7 +53,6 @@ function hiLow() {
 // Setting the secret number and wiping the slate clean
 function initialise() {
     number = Math.floor(Math.random() * (100 - 1) + 1);
-    console.log(number);
     guessNum = 0;
     guesses = [];
     resultMessage.style.display = 'none';
