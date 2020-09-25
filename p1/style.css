@@ -1,0 +1,13 @@
+#app {
+    text-align: center;
+    align-content: center;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.blockBtn {
+    display: block;
+    margin: 1em auto;
+}
