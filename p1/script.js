@@ -1,3 +1,8 @@
+Vue.component('history-message', {
+    props: [ 'num', 'result', 'text' ],
+    template: `<p>{{ num }}. {{ result }}! {{ text }}</p>`
+})
+
 const app = new Vue({
     el: '#app',
     data: {
@@ -7,15 +12,6 @@ const app = new Vue({
         gameRunning: false,
         roundRunning: false,
         cardDisplay: false,
-        won: {
-            color: 'green'
-        },
-        lost: {
-            color: 'red'
-        },
-        draw: {
-            color: 'black'
-        },
         roundHistory: [],
         rounds: 0,
         money: 100,

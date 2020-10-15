@@ -19,11 +19,11 @@
                     <div>
                         <p>Dealer Cards: value ({{ cpuValue }})</p>
                         <ul class='cardDisplay'>
-                            <li v-for='cards in cpuCards' :style='[cards.color == "Black" ? draw : lost]'> {{ cards.card }}</li>
+                            <li v-for='cards in cpuCards' :class='[cards.color == "Red" ? "red" : ""]'> {{ cards.card }}</li>
                         </ul>
                         <p>Player Cards: value ({{ playerValue }})</p>
                         <ul class='cardDisplay'>
-                            <li v-for='cards in playerCards' :style='[cards.color == "Black" ? draw : lost]'> {{ cards.card }}</li>
+                            <li v-for='cards in playerCards' :class='[cards.color == "Red" ? "red" : ""]'> {{ cards.card }}</li>
                         </ul>
                         <button @click='hit' type='button'>Hit</button>
                         <button @click='double' type='button' v-if='doubleOn'>Double</button>
@@ -40,6 +40,14 @@
         <button @click='history = !history' class='blockBtn' type='button'>History</button>
         <div v-show='history'>
             <!-- <li v-for='items in roundHistory' v-bind:style='items.result'>{{ items.num }}. {{ items.result }}! {{ items.text }}</li> -->
+            <history-message
+                v-for='items in roundHistory'
+                :key='items.key'
+                :num='items.num'
+                :result='items.result'
+                :text='items.text'
+                :class='[items.result == "lost" ? "red" : "", items.result == "won" ? "green" : "" ]'
+                ></history-message>
         </div>
         <button @click='rules = !rules' class='blockBtn' type='button'>Rules</button>
         <ul v-show='rules'>

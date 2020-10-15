@@ -48,3 +48,11 @@ div {
 .cardDisplay li {
     display: inline-block;
 }
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
