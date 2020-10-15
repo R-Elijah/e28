@@ -26,6 +26,7 @@
                             <li v-for='cards in playerCards' :style='[cards.color == "Black" ? draw : lost]'> {{ cards.card }}</li>
                         </ul>
                         <button @click='hit' type='button'>Hit</button>
+                        <button @click='double' type='button' v-if='doubleOn'>Double</button>
                         <button @click='stand' type='button'>Stand</button>
                     </div>
                 </template>
@@ -48,7 +49,7 @@
             <li>If the player is dealt a 21 (a "natural" or "blackjack") with their first two cards, the round ends with the player receiving 2.5x their bet back. If the dealer has a 21 instead then the round is lost by the player and if both have a 21 then the round is a tie.</li>
             <li>After both player and dealer receive their 2 cards the player must continue to "hit" till they decide to "stand". If they go over 21 at any point the round is lost.</li>
             <li>Once the player stands, it is the dealers turn to hit. The dealer will continue to hit till their card value is 17 or above.</li>
-            <li>Doubling and splitting are not implemented.</li>
+            <li>Splitting is not implemented.</li>
         </ul>
     </div>
 </body>

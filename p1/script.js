@@ -78,7 +78,8 @@ const app = new Vue({
         playerCards: [],
         playerValue: 0,
         playerBet: 0,
-        roundResult: ''
+        roundResult: '',
+        doubleOn: false
     },
     methods: {
         shuffleDeck(deck) {
@@ -107,6 +108,7 @@ const app = new Vue({
         },
         hit() {
             if (this.roundRunning) {
+                this.doubleOn = false;
                 this.playerCards.push(this.deck[this.deckIndex++]);
                 this.playerValue = this.countCards(this.playerCards);
                 if (this.playerValue > 21) {
@@ -120,7 +122,6 @@ const app = new Vue({
         stand() {
             if (this.roundRunning) {
                 this.cpuCards.splice(1, 1, this.cpuHiddenCard);
-
                 this.cpuValue = this.countCards(this.cpuCards);
                 while (this.cpuValue < 17) {
                     this.cpuCards.push(this.deck[this.deckIndex++]);
@@ -144,6 +145,23 @@ const app = new Vue({
                 }
                 this.playerBet = 0;
                 this.roundRunning = false;
+            }
+        },
+        double() {
+            if (this.roundRunning) {
+                this.money -= this.playerBet;
+                this.playerBet *= 2;
+                this.doubleOn = false;
+                this.playerCards.push(this.deck[this.deckIndex++]);
+                this.playerValue = this.countCards(this.playerCards);
+                if (this.playerValue > 21) {
+                    this.roundResult = 'Player has busted. Round lost.';
+                    this.playerBet = 0;
+                    this.roundHistory.push({ num: this.rounds++, result: 'lost', text: 'Player busted.' });
+                    this.roundRunning = false;
+                } else {
+                    this.stand();
+                }
             }
         },
         playRound() {
@@ -176,6 +194,11 @@ const app = new Vue({
                 this.cpuValue = this.countCards(this.cpuCards);
                 tempValue = this.countCards(tempCards);
 
+                // Enable double button if player has enough money
+                if (this.money >= this.playerBet) {
+                    this.doubleOn = true;
+                }
+
                 // Check for blackjacks
                 if (this.playerValue == 21) {
                     if (tempValue == 21) {
@@ -193,6 +216,7 @@ const app = new Vue({
                     }
                 } else if (tempValue == 21) {
                     this.cpuCards.splice(1, 1, this.cpuHiddenCard);
+                    this.cpuValue = tempValue;
                     this.roundResult = 'CPU has a natural. Round lost.';
                     this.playerBet = 0;
                     this.roundHistory.push({ num: this.rounds++, result: 'lost', text: 'CPU had a natural.' });
