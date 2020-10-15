@@ -1,13 +1,50 @@
 #app {
     text-align: center;
     align-content: center;
+    padding-right: 25%;
+    padding-left: 25%;
 }
 
 [v-cloak] {
     display: none;
 }
 
+#gameScreen {
+    border: 1px solid black;
+    border-radius: 1em;
+}
+
 .blockBtn {
     display: block;
-    margin: 1em auto;
+}
+
+button {
+    margin: 1vh auto;
+}
+
+ul {
+    text-align: left;
+}
+
+div {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+#moneyDisplay {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.cardDisplay {
+    font-size: 6em;
+    list-style-type: none;
+    overflow: hidden;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.cardDisplay li {
+    display: inline-block;
 }

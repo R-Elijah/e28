@@ -14,14 +14,32 @@
     <div id='app' v-cloak>
         <h1>Black Jack</h1>
         <template v-if='gameRunning'>
-            <button type='button'>Hit</button>
-            <button type='button'>Stand</button>
+            <div id='gameScreen'>
+                <template v-if='cardDisplay'>
+                    <div>
+                        <p>Dealer Cards: value ({{ cpuValue }})</p>
+                        <ul class='cardDisplay'>
+                            <li v-for='cards in cpuCards' :style='[cards.color == "Black" ? draw : lost]'> {{ cards.card }}</li>
+                        </ul>
+                        <p>Player Cards: value ({{ playerValue }})</p>
+                        <ul class='cardDisplay'>
+                            <li v-for='cards in playerCards' :style='[cards.color == "Black" ? draw : lost]'> {{ cards.card }}</li>
+                        </ul>
+                        <button @click='hit' type='button'>Hit</button>
+                        <button @click='stand' type='button'>Stand</button>
+                    </div>
+                </template>
+                <p>{{ roundResult }}</p>
+                <input type='number' v-model.number='playerBet' :disabled=roundRunning></input>
+                <button @click='playRound' type='button' class='blockBtn' :disabled='roundRunning || money == 0'>Bet</button>
+                <p id='moneyDisplay'>Money: ${{ money }}</p>
+            </div>
         </template>
-        <button class='blockBtn' type='button'>Start Game</button>
+        <button @click='runGame' class='blockBtn' type='button'>{{ gameButton }}</button>
         <button @click='history = !history' class='blockBtn' type='button'>History</button>
-        <ul v-show='history'>
-            <li v-for='items in roundHistory' v-bind:style='items.result'>{{ items.num }}. {{ items.result }}! {{ items.text }}</li>
-        </ul>
+        <div v-show='history'>
+            <!-- <li v-for='items in roundHistory' v-bind:style='items.result'>{{ items.num }}. {{ items.result }}! {{ items.text }}</li> -->
+        </div>
         <button @click='rules = !rules' class='blockBtn' type='button'>Rules</button>
         <ul v-show='rules'>
             <li>The objective of the game is to beat the dealer by getting as close to 21 as possible, without going over.</li>
