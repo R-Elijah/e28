@@ -1,6 +1,6 @@
 Vue.component('history-message', {
     props: [ 'num', 'result', 'text' ],
-    template: `<p>{{ num }}. {{ result }}! {{ text }}</p>`
+    template: `<p>Round {{ num }}. {{ result }}! {{ text }}</p>`
 })
 
 const app = new Vue({

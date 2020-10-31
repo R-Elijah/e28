@@ -39,7 +39,6 @@
         <button @click='runGame' class='blockBtn' type='button'>{{ gameButton }}</button>
         <button @click='history = !history' class='blockBtn' type='button'>History</button>
         <div v-show='history'>
-            <!-- <li v-for='items in roundHistory' v-bind:style='items.result'>{{ items.num }}. {{ items.result }}! {{ items.text }}</li> -->
             <history-message
                 v-for='items in roundHistory'
                 :key='items.key'
