@@ -1,0 +1,24 @@
+{
+    "seeds": [
+        {
+            "title": "First Blog Post",
+            "body": "This is a test post for the system. The first of many probably."
+        },
+        {
+            "title": "Second Blog Post",
+            "body": "This is the second test post for the system. Lorem Ipsum to follow maybe?"
+        },
+        {
+            "title": "Third Blog Post",
+            "body": "This is the third test post for the system."
+        },
+        {
+            "title": "Fourth Blog Post",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
+        },
+        {
+            "title": "Fifth Blog Post",
+            "body": "Well that was a bit long wasn't it?"
+        }
+    ]
+}

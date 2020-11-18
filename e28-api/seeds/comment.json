@@ -1,0 +1,29 @@
+{
+    "seeds": [
+        {
+            "postID": 1,
+            "userName": "Test Dummy 1",
+            "body": "First!"
+        },
+        {
+            "postID": 1,
+            "userName": "Test Dummy 2",
+            "body": "Indeed you are."
+        },
+        {
+            "postID": 1,
+            "userName": "Test Dummy 3",
+            "body": "What do you want? A cookie?"
+        },
+        {
+            "postID": 2,
+            "userName": "Test Dummy 2",
+            "body": "Haha I am first this time!"
+        },
+        {
+            "postID": 2,
+            "userName": "Test Dummy 3",
+            "body": "Grow up."
+        }
+    ]
+}

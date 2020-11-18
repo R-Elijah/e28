@@ -1,0 +1,46 @@
+{
+    "post": {
+        "title": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:3",
+                "max:50"
+            ]
+        },
+        "body": {
+            "type": "text",
+            "validators": [
+                "required",
+                "min:3",
+                "max:5000"
+            ]
+        }
+    },
+    "comment": {
+        "postID": {
+            "type": "integer",
+            "validators": [
+                "required",
+                "numeric"
+            ]
+        },
+        "userName": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:3",
+                "max:20",
+                "alpha_dash"
+            ]
+        },
+        "body": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:3",
+                "max:200"
+            ]
+        }
+    }
+}

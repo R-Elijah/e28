@@ -1,28 +1,61 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Micro Blog</h1>
+    <nav>
+      <ul>
+        <li>
+          <router-link
+            v-for="link in links"
+            v-bind:key="link"
+            v-bind:to="paths[link]"
+            exact
+          >{{ link }}</router-link>
+        </li>
+      </ul>
+    </nav>
+    <router-view
+      v-bind:posts="posts"
+      v-bind:comments="comments"
+      v-on:update-posts="updatePosts()"
+      v-on:update-comments="updateComments()"
+    ></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { axios } from '@/app.js';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      posts: [],
+      comments: [],
+      links: ['home', 'all', 'submit'],
+      paths: {
+        home: '/',
+        all: '/all',
+        submit: '/submit'
+      }
+    };
+  },
+  methods: {
+    updatePosts() {
+      axios.get('post').then((response) => {
+        this.posts = response.data.post;
+      });
+    },
+    updateComments() {
+      axios.get('comment').then((response) => {
+        this.comments = response.data.comment;
+      });
+    }
+  },
+  mounted() {
+    this.updatePosts();
+    this.updateComments();
+  } 
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="./assets/style.css"></style>
