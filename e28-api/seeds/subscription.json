@@ -1,0 +1,16 @@
+{
+    "seeds": [
+        {
+            "user_id": 2,
+            "sub": "Test User"
+        },
+        {
+            "user_id": 2,
+            "sub": "Jill Harvard"
+        },
+        {
+            "user_id": 1,
+            "sub": "Test User"
+        }
+    ]
+}

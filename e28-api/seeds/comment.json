@@ -2,27 +2,27 @@
     "seeds": [
         {
             "postID": 1,
-            "userName": "Test Dummy 1",
+            "userName": "Jill Harvard",
             "body": "First!"
         },
         {
             "postID": 1,
-            "userName": "Test Dummy 2",
+            "userName": "Jamal Harvard",
             "body": "Indeed you are."
         },
         {
             "postID": 1,
-            "userName": "Test Dummy 3",
+            "userName": "Anonymous",
             "body": "What do you want? A cookie?"
         },
         {
             "postID": 2,
-            "userName": "Test Dummy 2",
+            "userName": "Jamal Harvard",
             "body": "Haha I am first this time!"
         },
         {
             "postID": 2,
-            "userName": "Test Dummy 3",
+            "userName": "Anonymous",
             "body": "Grow up."
         }
     ]

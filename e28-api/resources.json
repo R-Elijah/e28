@@ -1,5 +1,13 @@
 {
     "post": {
+        "userName": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:3",
+                "max:20"
+            ]
+        },
         "title": {
             "type": "string",
             "validators": [
@@ -30,8 +38,7 @@
             "validators": [
                 "required",
                 "min:3",
-                "max:20",
-                "alpha_dash"
+                "max:20"
             ]
         },
         "body": {
@@ -40,6 +47,23 @@
                 "required",
                 "min:3",
                 "max:200"
+            ]
+        }
+    },
+    "subscription": {
+        "user_id": {
+            "type": "integer",
+            "validators": [
+                "required",
+                "numeric"
+            ]
+        },
+        "sub": {
+            "type": "string",
+            "validators": [
+                "required",
+                "min:3",
+                "max:20"
             ]
         }
     }
