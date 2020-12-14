@@ -16,7 +16,7 @@
       v-bind:to="'/all/' + post.id"
       exact
     >
-      <BlogPost v-bind:id="post.id"></BlogPost>
+      <BlogPost v-bind:id="post.id" data-test="home-post"></BlogPost>
     </router-link>
   </div>
 </template>

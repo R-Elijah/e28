@@ -1,8 +1,8 @@
 <template>
   <div id="post">
-    <div id="post-title">{{ post.title }}</div>
+    <div id="post-title" data-test="post-title">{{ post.title }}</div>
     <p id="post-body">{{ post.body }}</p>
-    <div id="blog-username">
+    <div id="blog-username" data-test="post-username">
       By {{ post.userName }}
       <div id="ts">{{ timestamp }}</div>
     </div>

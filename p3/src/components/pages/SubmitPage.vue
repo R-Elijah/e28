@@ -11,6 +11,7 @@
         @click="clearErrors"
         @blur="validate"
         id="title"
+        data-test="submit-title"
       />
       <label for="body">Post (Max 5000 Characters)</label>
       <textarea
@@ -19,9 +20,10 @@
         @click="clearErrors"
         @blur="validate"
         id="body"
+        data-test="submit-body"
       ></textarea>
     </div>
-    <button @click="submitPost">Submit Post</button>
+    <button @click="submitPost" data-test="submit-button">Submit Post</button>
 
     <ErrorDisplay v-if="errors" v-bind:errors="errors"></ErrorDisplay>
     <ClientErrorDisplay
@@ -81,7 +83,7 @@ export default {
 
           this.post.body = "";
           this.post.title = "";
-          this.showConfirmationMessage = false;
+          setTimeout(() => (this.showConfirmationMessage = false), 2000);
         }
       });
     },

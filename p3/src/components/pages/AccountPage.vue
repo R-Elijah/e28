@@ -1,13 +1,15 @@
 <template>
   <div id="account-page">
     <div v-if="user">
-      <h4>Hello, {{ user.name }}!</h4>
-      <button @click="logout">Logout</button>
+      <h4 data-test="welcome-message">Hello, {{ user.name }}!</h4>
+      <button @click="logout" data-test="logout-button">Logout</button>
 
       <br />
       <h4>Current Subscriptions</h4>
       <ul>
-        <li v-for="sub in subscriptions" v-bind:key="sub.id">{{ sub.sub }}</li>
+        <li v-for="sub in subscriptions" v-bind:key="sub.id" data-test="sub">
+          {{ sub.sub }}
+        </li>
       </ul>
 
       <br /><br />
@@ -25,9 +27,10 @@
           @click="clearErrors"
           @blur="validateAdd"
           id="newSub"
+          data-test="add-sub-input"
         />
       </div>
-      <button @click="addSub">Add</button>
+      <button @click="addSub" data-test="add-sub-button">Add</button>
       <ErrorDisplay
         v-if="errors.type == 'Add'"
         v-bind:errors="errors.message"
@@ -56,9 +59,10 @@
           @click="clearErrors"
           @blur="validateDel"
           id="oldSub"
+          data-test="del-sub-input"
         />
       </div>
-      <button @click="delSub">Unsubscribe</button>
+      <button @click="delSub" data-test="del-sub-button">Unsubscribe</button>
       <ErrorDisplay
         v-if="errors.type == 'Del'"
         v-bind:errors="errors.message"
@@ -83,6 +87,7 @@
           @click="clearErrors"
           @blur="validateLogin"
           id="email"
+          data-test="email-input"
         />
 
         <label for="pass">Password:</label>
@@ -93,9 +98,10 @@
           @click="clearErrors"
           @blur="validateLogin"
           id="pass"
+          data-test="password-input"
         />
       </div>
-      <button @click="login">Login</button>
+      <button @click="login" data-test="login-button">Login</button>
       <ErrorDisplay
         v-if="errors.type == 'Login'"
         v-bind:errors="errors.message"
@@ -269,7 +275,7 @@ export default {
     validateLogin() {
       let validator = new Validator(this.data, {
         email: "required|email",
-        password: "required|between:3,25|alpha_dash",
+        password: "required|alpha_dash",
       });
 
       this.clientErrors = validator.errors.all();

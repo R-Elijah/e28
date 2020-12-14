@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4>Submit a comment</h4>
+    <h4 data-test="comment-form">Submit a comment</h4>
     <div id="inputs">
       <h5>User: {{ username }}</h5>
       <label for="body">Comment (Max 200 Characters)</label>
@@ -10,9 +10,12 @@
         @click="clearErrors"
         @blur="validate"
         id="body"
+        data-test="comment-body-submit"
       ></textarea>
     </div>
-    <button @click="submitComment">Submit Comment</button>
+    <button @click="submitComment" data-test="comment-submit">
+      Submit Comment
+    </button>
     <ErrorDisplay v-if="errors" v-bind:errors="errors"></ErrorDisplay>
     <ClientErrorDisplay
       v-if="clientErrors"
@@ -56,7 +59,7 @@ export default {
   },
   methods: {
     submitComment() {
-      if (this.clientErrors['body']) {
+      if (this.clientErrors["body"]) {
         return;
       }
       this.comment.userName = this.username;

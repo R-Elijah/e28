@@ -1,10 +1,10 @@
 <template>
   <div id="comment">
-    <div id="comment-username">
+    <div id="comment-username" data-test="comment-username">
       {{ comment.userName }}
       <div id="ts">{{ timestamp }}</div>
     </div>
-    <p id="comment-body">{{ comment.body }}</p>
+    <p id="comment-body" data-test="comment-body">{{ comment.body }}</p>
   </div>
 </template>
 
