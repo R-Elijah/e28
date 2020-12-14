@@ -1,6 +1,6 @@
 # Project 3
 + By: Elijah Reddy
-+ Production URL: <http://e28p2.mystphy.sx>
++ Production URL: <http://e28p3.mystphy.sx>
 + Concept: Micro Blog
 
 ## Pages summary
@@ -18,7 +18,17 @@
 - Retrieve blog posts and comments
 - Submit blog posts and comments
 
+## Vuex
+- Posts
+- Comments
+- Subscriptions
+
+## Authentication
+- Non-anonymous posts
+- Non-anonymous comments
+- Subscriptions and feed
+
 ## Outside resources
-- https://stackoverflow.com/questions/42615445/vuejs-2-0-emit-event-from-grand-child-to-his-grand-parent-component
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 
 ## Notes for instructor
